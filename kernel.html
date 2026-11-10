@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>完整记录 · Yicong</title>
+  <meta name="description" content="Yi Cong 合入 Linux 主线内核的补丁记录">
+  <title>Linux 内核贡献 · Yi Cong</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -14,24 +15,24 @@
       <button class="nav-toggle" id="navToggle" aria-label="打开菜单">☰</button>
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html">首页</a></li>
-        <li><a href="index.html#kernel">内核贡献</a></li>
-        <li><a href="index.html#patents">专利</a></li>
-        <li><a href="contributions.html">完整记录</a></li>
+        <li><a href="index.html#about">关于</a></li>
+        <li><a href="index.html#skills">技能</a></li>
+        <li><a href="kernel.html" class="active">内核贡献</a></li>
+        <li><a href="opensource.html">开源贡献</a></li>
+        <li><a href="patents.html">专利</a></li>
         <li><a href="index.html#contact" class="nav-cta">联系我</a></li>
       </ul>
     </div>
   </nav>
 
   <header class="page-header">
-    <p class="meta"><span>可公开查询</span><span>持续更新</span></p>
-    <h1>工作成果完整记录</h1>
+    <p class="meta"><span data-stat="patches" data-template="%d 个补丁合入主线">7 个补丁合入主线</span><span data-stat="cveFixes" data-template="含 %d 个 CVE 修复">含 1 个 CVE 修复</span><span>持续更新...</span></p>
+    <h1>Linux 内核贡献</h1>
   </header>
 
   <article class="article">
-    <p>本页记录本人所有可公开查询的工作成果。内核邮件讨论归档可在 <a href="https://lore.kernel.org/all/?q=cong.yi%40linux.dev" target="_blank" rel="noopener">lore.kernel.org（cong.yi@linux.dev）</a> 与 <a href="https://lore.kernel.org/all/?q=yicong%40kylinos.cn" target="_blank" rel="noopener">lore.kernel.org（yicong@kylinos.cn）</a> 查询。</p>
-
-    <h2><span class="sec-index">01.</span>Linux 内核贡献 <code class="sec-comment">// merged</code></h2>
-
+    <p>合入 Linux 主线内核的补丁。</p>
+    <p>邮件讨论与归档可在 <a href="https://lore.kernel.org/all/?q=%28cong.yi%40linux.dev%20OR%20yicong%40kylinos.cn%29" target="_blank" rel="noopener">lore.kernel.org</a> 公开查询（cong.yi@linux.dev / yicong@kylinos.cn）。</p>
     <div class="record-item">
       <h3>usbnet: Set duplex status to unknown in the absence of MII</h3>
       <p class="record-desc">【USB/网络子系统】修复由于 USB CDC 协议未定义双工状态，导致使用 cdc_ncm.ko 的网卡通过 ethtool 查看双工状态显示错误的问题。</p>
@@ -74,7 +75,8 @@
 
     <div class="record-item">
       <h3>net: usb: ax88179_178a: fix skb leak in ax88179_tx_fixup()</h3>
-      <p class="record-desc">【USB/网络子系统】修复 ax88179 skb 线性区内存分配失败未释放 skb 导致内存泄露的问题。<b>该修复后续成为 CVE 修复（分值 7.5）。</b></p>
+      <p class="record-desc">【USB/网络子系统】修复 ax88179 skb 线性区内存分配失败未释放 skb 导致内存泄露的问题。</p>
+      <p><b>该修复后续成为 CVE 修复（分值 7.5）。</b></p>
       <ul class="record-links">
         <li><span>提交</span><code>1f428e3094739</code>（2026-08-04 合入）</li>
         <li><a href="https://patch.msgid.link/20260729030436.3420477-1-cong.yi@linux.dev" target="_blank" rel="noopener">社区邮件讨论 ↗</a></li>
@@ -100,34 +102,12 @@
         <li><a href="https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/commit/?id=d0115096429ca090a592770c7645f9553a839954" target="_blank" rel="noopener">内核补丁 ↗</a></li>
       </ul>
     </div>
-
-    <h2><span class="sec-index">02.</span>其他开源贡献</h2>
-    <div class="record-item">
-      <h3>Notepad--：修复右键定位文件目录无响应</h3>
-      <p class="record-desc">修复 Kylin OS V10 SP1 下右键定位文件所在目录无响应的问题。</p>
-      <ul class="record-links">
-        <li><span>提交</span><code>f5104e4</code></li>
-        <li><a href="https://gitee.com/cxasm/notepad--/commit/99b3831f2408c8510f2728cb14e7015884a0a6ca" target="_blank" rel="noopener">Gitee PR 链接 ↗</a></li>
-      </ul>
-    </div>
-
-    <h2><span class="sec-index">03.</span>专利</h2>
-    <table class="patent-table">
-      <thead>
-        <tr><th>公开 / 授权号</th><th>专利名</th><th>状态</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>CN122679229A</td><td>内核多版本无线协议栈共存部署方法、装置、终端及介质</td><td>已公开</td></tr>
-        <tr><td>CN120743339B</td><td>预留结构体的确定方法、装置、终端及介质</td><td><span class="status-ok">已授权</span>（2025-12-12）</td></tr>
-        <tr><td>CN120658602A</td><td>一种操作系统升级后的网络性能调优方法及系统</td><td>已公开</td></tr>
-      </tbody>
-    </table>
   </article>
 
   <p class="back-list"><a href="index.html">← 返回首页</a></p>
 
   <footer class="footer">
-    <p class="copyright">© <span id="year">2026</span> Yicong · Built with ♥ and GitHub Pages</p>
+    <p class="copyright">© <span id="year">2026</span> Yi Cong · Built with ♥ and GitHub Pages</p>
   </footer>
 
   <script src="js/main.js"></script>

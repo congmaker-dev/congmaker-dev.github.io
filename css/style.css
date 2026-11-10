@@ -9,6 +9,7 @@
   --cyan: #00e0ff;
   --green: #7ee787;
   --pink: #ff7b9c;
+  --violet: #c678dd;
   --mono: "JetBrains Mono", "Fira Code", "Cascadia Code", Consolas, "Courier New", monospace;
   --sans: -apple-system, "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji";
 }
@@ -55,6 +56,7 @@ a { color: var(--cyan); text-decoration: none; }
   transition: color .2s, background .2s;
 }
 .nav-links a:hover { color: var(--cyan); background: rgba(0, 224, 255, .08); }
+.nav-links a.active { color: var(--cyan); background: rgba(0, 224, 255, .08); }
 .nav-links .nav-cta {
   color: var(--bg); background: var(--green); font-weight: 600;
   margin-left: 8px; border: 1px solid var(--green);
@@ -127,12 +129,20 @@ h2 {
 h3 { color: #e6edf3; }
 
 /* 关于 */
-.about-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 28px; align-items: start; }
+.about-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 28px; align-items: stretch; }
 .about-text p { margin-bottom: 14px; }
 .about-text em { color: var(--cyan); font-style: normal; }
 .facts-card {
   background: var(--card); border: 1px solid var(--border); border-radius: 10px;
   padding: 20px 22px; font-family: var(--mono); font-size: .88rem;
+  display: flex; flex-direction: column; justify-content: center;
+}
+/* 头像（小档案卡顶部，圆形 + 主题色光环） */
+.facts-card .avatar {
+  display: block; width: 120px; height: 120px; margin: 2px auto 16px;
+  border-radius: 50%; object-fit: cover; object-position: 40% 35%;
+  border: 2px solid var(--cyan); background: var(--bg-soft);
+  box-shadow: 0 0 18px rgba(0, 224, 255, .22);
 }
 .fact { padding: 8px 0; border-bottom: 1px dashed var(--border); color: var(--text-dim); }
 .fact:last-child { border-bottom: none; }
@@ -169,6 +179,15 @@ h3 { color: #e6edf3; }
 }
 .project-top { display: flex; justify-content: space-between; align-items: center; }
 .folder-icon { font-size: 1.7rem; }
+/* 内核贡献卡片技术图标（内联 SVG，替代 emoji，跨平台渲染稳定） */
+.project-top .tech-icon {
+  width: 34px; height: 34px; flex-shrink: 0;
+  padding: 5px; box-sizing: border-box; border-radius: 50%;
+  background: color-mix(in srgb, currentColor 10%, transparent);
+}
+.icon-usb { color: var(--violet); }
+.icon-eth { color: var(--green); }
+.icon-wifi { color: var(--cyan); }
 .project-links a { color: var(--text-dim); transition: color .2s; }
 .project-links a:hover { color: var(--cyan); }
 .project-card h3 { font-size: 1.12rem; color: var(--cyan); }
@@ -281,7 +300,7 @@ h3 { color: #e6edf3; }
 }
 .record-item h3 { font-size: 1.02rem; color: var(--cyan); margin-bottom: 8px; }
 .record-desc { color: var(--text-dim); font-size: .92rem; margin-bottom: 10px; }
-.record-desc b { color: var(--pink); }
+.record-item b { color: var(--pink); }
 .record-links { list-style: none; font-family: var(--mono); font-size: .82rem; display: flex; flex-wrap: wrap; gap: 8px 18px; }
 .record-links li { color: var(--text-dim); }
 .record-links code { background: var(--bg-soft); border: 1px solid var(--border); border-radius: 4px; padding: 1px 7px; color: var(--green); }

@@ -10,11 +10,16 @@ Yicong 的个人主页，展示 Linux 内核贡献、开源项目与专利。纯
 ```
 congmaker-dev.github.io/
 ├── index.html          主页（统计条/关于/技能/Linux内核贡献7卡/其他开源贡献/专利/联系）
-├── contributions.html  完整记录页（每项成果含邮件讨论链接与补丁链接）
+├── kernel.html         完整记录 · Linux 内核贡献（每项含邮件讨论链接与补丁链接）
+├── opensource.html     完整记录 · 其他开源贡献（Notepad--）
+├── patents.html        完整记录 · 专利
 ├── css/style.css       全部样式（配色在顶部 :root 变量区）
 ├── js/main.js          菜单/终端打字机/滚动动画
 └── README.md           本文件
 ```
+
+导航栏在所有页面保持一致（首页 / 关于 / 技能 / 内核贡献 / 开源贡献 / 专利 / 联系我），
+当前页对应项自动高亮（`class="active"`，新建页面时记得设置）。
 
 ## 👀 本地预览
 
@@ -59,11 +64,10 @@ Settings → Pages，确认 Source 为 `Deploy from a branch`、分支 `main`、
 
 | 想改什么 | 改哪里 |
 |---|---|
-| 统计条数字 | `index.html` 的 `.stats` 区块 |
-| 新增内核补丁卡片 | `index.html` 复制一个 `<article class="project-card">` 块 |
-| 新增开源项目贡献 | `index.html` 的 `.oss-grid` 里复制一张 `.oss-card` |
-| 新增完整记录条目 | `contributions.html` 复制一个 `.record-item` 块（含讨论链接） |
-| 新增专利 | `index.html` 与 `contributions.html` 的 `.patent-table` 各加一行 |
+| 统计数字（补丁数/专利数等） | **只改 `js/main.js` 顶部的 `SITE` 配置**，各页面统计自动同步 |
+| 新增内核补丁 | `index.html` 复制一个 `<article class="project-card">` 块 + `kernel.html` 复制一个 `.record-item` 块（含讨论链接），再把 `main.js` 里 `SITE.patches` 加 1 |
+| 新增开源项目贡献 | `index.html` 的 `.oss-grid` 里复制一张 `.oss-card` + `opensource.html` 复制一个 `.record-item` |
+| 新增专利 | `index.html` 与 `patents.html` 的 `.patent-table` 各加一行，更新 `SITE.patents` / `SITE.patentsGranted` |
 | 配色 / 字体 / 间距 | `css/style.css` 顶部 `:root` 变量区 |
 
 ## 📌 内容来源
