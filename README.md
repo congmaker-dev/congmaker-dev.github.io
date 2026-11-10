@@ -66,7 +66,7 @@ Settings → Pages，确认 Source 为 `Deploy from a branch`、分支 `main`、
 
 | 想改什么 | 改哪里 |
 |---|---|
-| 统计数字（补丁数/专利数等） | **只改 `js/main.js` 顶部的 `SITE` 配置**，各页面统计自动同步 |
+| 统计数字（补丁数/专利数等） | **只改 `js/main.js` 顶部的 `SITE` 配置**，各页面统计自动同步；HTML 里 `data-stat` 元素只放 `-` 占位符，不要在 HTML 手改数字 |
 | 新增内核补丁 | `index.html` 复制一个 `<article class="project-card">` 块 + `kernel.html` 复制一个 `.record-item` 块（含讨论链接），再把 `main.js` 里 `SITE.patches` 加 1 |
 | 新增开源项目贡献 | `index.html` 的 `.oss-grid` 里复制一张 `.oss-card` + `opensource.html` 复制一个 `.record-item` |
 | 新增专利 | `patents.html` 复制一张 `.patent-detail` 卡（含著录/问题/方案/效果/附图）并加表格行，`index.html` 表格加同名锚点行，附图放 `images/patents/`，更新 `SITE.patents` / `SITE.patentsGranted` |
