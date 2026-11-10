@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Yicong 的个人主页 — Linux 内核贡献、开源项目与专利">
+  <title>Yicong · Linux 内核开发者</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- 导航栏 -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="logo" href="#home">~/yicong<span class="logo-cursor">_</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="打开菜单">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">首页</a></li>
+        <li><a href="#about">关于</a></li>
+        <li><a href="#skills">技能</a></li>
+        <li><a href="#kernel">内核贡献</a></li>
+        <li><a href="#oss">开源贡献</a></li>
+        <li><a href="#patents">专利</a></li>
+        <li><a href="contributions.html">完整记录</a></li>
+        <li><a href="#contact" class="nav-cta">联系我</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- 首屏：终端窗口 -->
+  <header class="hero" id="home">
+    <div class="terminal">
+      <div class="terminal-bar">
+        <span class="dot dot-red"></span>
+        <span class="dot dot-yellow"></span>
+        <span class="dot dot-green"></span>
+        <span class="terminal-title">zsh — ~/linux</span>
+      </div>
+      <div class="terminal-body">
+        <p class="line"><span class="prompt">$</span> whoami</p>
+        <p class="output">Yicong —— Linux 内核开发者 @ KylinOS</p>
+        <p class="line"><span class="prompt">$</span> cat intro.txt</p>
+        <p class="output">专注 USB / 网络 / 无线驱动子系统，<br>7 个补丁合入 Linux 主线内核，含 1 个 CVE 修复。</p>
+        <p class="line"><span class="prompt">$</span> <span id="typing"></span><span class="type-cursor">▊</span></p>
+      </div>
+    </div>
+    <div class="hero-links">
+      <a class="btn btn-primary" href="#kernel">内核贡献 →</a>
+      <a class="btn btn-outline" href="contributions.html">完整记录</a>
+      <a class="btn btn-ghost" href="https://lore.kernel.org/all/?q=cong.yi%40linux.dev" target="_blank" rel="noopener">lore.kernel.org ↗</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- 关于我 -->
+    <section id="about" class="section reveal">
+      <h2><span class="sec-index">01.</span>关于我 <code class="sec-comment">// about</code></h2>
+      <div class="stats">
+        <div class="stat"><b>7</b><span>主线内核补丁</span></div>
+        <div class="stat"><b>1</b><span>CVE 修复 (7.5)</span></div>
+        <div class="stat"><b>3</b><span>专利</span></div>
+        <div class="stat"><b>2</b><span>开源项目贡献</span></div>
+      </div>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>你好，我是 Yicong，一名 Linux 内核开发者，目前就职于麒麟软件（KylinOS），主要方向是 <em>USB、网络与无线驱动子系统</em>的开发与问题修复。</p>
+          <p>我持续向 Linux 主线内核提交补丁，专注于网络协议栈、以太网、WiFi方向。此外还参与 Notepad-- 等开源项目，并拥有多项发明专利。所有成果均可在 <a href="https://lore.kernel.org/all/?q=cong.yi%40linux.dev" target="_blank" rel="noopener">lore.kernel.org</a> 公开查询。</p>
+        </div>
+        <div class="facts-card">
+          <p class="fact"><span class="fact-key">身份</span>Linux 内核开发者</p>
+          <p class="fact"><span class="fact-key">单位</span>麒麟软件 KylinOS</p>
+          <p class="fact"><span class="fact-key">方向</span>协议栈 / 以太网 / WiFi</p>
+          <p class="fact"><span class="fact-key">状态</span>🟢 持续向主线提交补丁</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 技能 -->
+    <section id="skills" class="section reveal">
+      <h2><span class="sec-index">02.</span>技能栈 <code class="sec-comment">// skills</code></h2>
+      <div class="skill-groups">
+        <div class="skill-group">
+          <h3>&lt;内核子系统 /&gt;</h3>
+          <div class="chips">
+            <span class="chip">Linux Kernel</span><span class="chip">USB</span><span class="chip">usbnet</span><span class="chip">wireless</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>&lt;驱动 /&gt;</h3>
+          <div class="chips">
+            <span class="chip">r8152</span><span class="chip">rtl8xxxu</span><span class="chip">rtw89</span><span class="chip">mt76</span><span class="chip">cdc_ncm</span><span class="chip">ax88179</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>&lt;语言与工作流 /&gt;</h3>
+          <div class="chips">
+            <span class="chip">C</span><span class="chip">Git</span><span class="chip">邮件补丁流</span><span class="chip">Shell</span><span class="chip">Kylin OS</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Linux 内核贡献 -->
+    <section id="kernel" class="section reveal">
+      <h2><span class="sec-index">03.</span>Linux 内核贡献 <code class="sec-comment">// merged into mainline</code></h2>
+      <div class="project-grid">
+
+        <article class="project-card">
+          <div class="project-top">
+            <span class="folder-icon">🔌</span>
+            <div class="project-links"><a href="https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/commit/?id=a75afcd188e1a7385c71f78d4e5e8d7b6bd9c2e4" target="_blank" rel="noopener" title="内核补丁"><svg viewBox="0 0 16 16" width="20" height="20" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a></div>
+          </div>
+          <h3>usbnet: Set duplex status to unknown in the absence of MII</h3>
+          <p>修复 CDC 类 USB 网卡（cdc_ncm 等）在无 MII 支持时 ethtool 显示错误双工状态的问题。</p>
+          <div class="tags"><span>USB/网络</span><span>a75afcd188e1</span><span>2025-07</span></div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-top">
+            <span class="folder-icon">🔌</span>
+            <div class="project-links"><a href="https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/commit/?id=75527d61d60d493d1eb064f335071a20ca581f54" target="_blank" rel="noopener" title="内核补丁"><svg viewBox="0 0 16 16" width="20" height="20" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a></div>
+          </div>
+          <h3>r8152: add error handling in rtl8152_driver_init</h3>
+          <p>为 r8152 驱动初始化流程补充错误处理退出机制，避免异常状态下继续运行。</p>
+          <div class="tags"><span>USB/网络</span><span>75527d61d60d</span><span>2025-10</span></div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-top">
+            <span class="folder-icon">🔌</span>
+            <div class="project-links"><a href="https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/commit/?id=dd1fbe324a548e8057d5f3c72ce1a64a80f1753e" target="_blank" rel="noopener" title="内核补丁"><svg viewBox="0 0 16 16" width="20" height="20" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a></div>
+          </div>
+          <h3>usb: linux/usb.h: Correct the description of the usb_device_driver member</h3>
+          <p>修正 usb_device_driver 结构体成员的文档描述错误。</p>
+          <div class="tags"><span>USB</span><span>dd1fbe324a54</span><span>2025-12</span></div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-top">
+            <span class="folder-icon">📶</span>
+            <div class="project-links"><a href="https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/commit/?id=f8a2fc809bfeb49130709b31a4d357a049f28547" target="_blank" rel="noopener" title="内核补丁"><svg viewBox="0 0 16 16" width="20" height="20" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a></div>
+          </div>
+          <h3>wifi: rtl8xxxu: fix potential use of uninitialized value</h3>
+          <p>修复 rtl8xxxu 无线驱动中潜在的使用未初始化变量问题。</p>
+          <div class="tags"><span>wireless</span><span>f8a2fc809bfe</span><span>2026-03</span></div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-top">
+            <span class="folder-icon">🔌</span>
+            <div class="project-links"><a href="https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/commit/?id=1f428e30947395d9b9aacee03e25a4e6cfcad7a4" target="_blank" rel="noopener" title="内核补丁"><svg viewBox="0 0 16 16" width="20" height="20" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a></div>
+          </div>
+          <h3>net: usb: ax88179_178a: fix skb leak in ax88179_tx_fixup()</h3>
+          <p>修复 ax88179_178a 发送路径中 skb 线性区分配失败未释放导致的内存泄露。</p>
+          <div class="tags"><span>USB/网络</span><span>1f428e3094739</span><span>2026-08</span></div>
+          <div><a class="cve-badge" href="https://lore.kernel.org/linux-cve-announce/2026082231-CVE-2026-74678-e009@gregkh/" target="_blank" rel="noopener">★ CVE-2026-74678 · CVSS 7.5</a></div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-top">
+            <span class="folder-icon">📶</span>
+            <div class="project-links"><a href="https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/commit/?id=7e080e17ca38b72f6cf01e3bc750c243573e69a7" target="_blank" rel="noopener" title="内核补丁"><svg viewBox="0 0 16 16" width="20" height="20" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a></div>
+          </div>
+          <h3>wifi: rtw89: 8851b: fix swapped DPK channel/bandwidth backup fields</h3>
+          <p>修复 rtl8851b 无线网卡信道与带宽设置中 DPK 备份字段交换错误的问题。</p>
+          <div class="tags"><span>wireless</span><span>7e080e17ca38</span><span>2026-09</span></div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-top">
+            <span class="folder-icon">📶</span>
+            <div class="project-links"><a href="https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/commit/?id=d0115096429ca090a592770c7645f9553a839954" target="_blank" rel="noopener" title="内核补丁"><svg viewBox="0 0 16 16" width="20" height="20" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a></div>
+          </div>
+          <h3>wifi: mt76: mt792x: fix negative errno truncation in offload capability</h3>
+          <p>修复 MTK WiFi 驱动（mt792x）硬件卸载能力设置中负值 errno 截断的问题。</p>
+          <div class="tags"><span>wireless</span><span>d0115096429c</span><span>2026-10</span></div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 其他开源贡献 -->
+    <section id="oss" class="section reveal">
+      <h2><span class="sec-index">04.</span>其他开源贡献 <code class="sec-comment">// open source</code></h2>
+      <div class="oss-grid">
+
+        <article class="oss-card">
+          <span class="oss-icon">📝</span>
+          <div class="oss-body">
+            <h3>Notepad-- <span class="oss-sub">跨平台文本编辑器</span></h3>
+            <p>修复 Kylin OS V10 SP1 下右键「定位文件所在目录」无响应的问题。</p>
+            <div class="tags"><span>提交 f5104e4</span><span>Kylin OS V10 SP1</span></div>
+          </div>
+          <a class="oss-link" href="https://gitee.com/cxasm/notepad--/commit/99b3831f2408c8510f2728cb14e7015884a0a6ca" target="_blank" rel="noopener">Gitee 提交 ↗</a>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 专利 -->
+    <section id="patents" class="section reveal">
+      <h2><span class="sec-index">05.</span>专利 <code class="sec-comment">// patents</code></h2>
+      <table class="patent-table">
+        <thead>
+          <tr><th>公开 / 授权号</th><th>专利名</th><th>状态</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>CN122679229A</td>
+            <td>内核多版本无线协议栈共存部署方法、装置、终端及介质</td>
+            <td>已公开</td>
+          </tr>
+          <tr>
+            <td>CN120743339B</td>
+            <td>预留结构体的确定方法、装置、终端及介质</td>
+            <td><span class="status-ok">已授权</span>（2025-12-12）</td>
+          </tr>
+          <tr>
+            <td>CN120658602A</td>
+            <td>一种操作系统升级后的网络性能调优方法及系统</td>
+            <td>已公开</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="more-link"><a href="contributions.html">查看带链接的完整记录 →</a></p>
+    </section>
+  </main>
+
+  <!-- 联系 & 页脚 -->
+  <footer id="contact" class="footer reveal">
+    <h2><span class="sec-index">06.</span>保持联系 <code class="sec-comment">// contact</code></h2>
+    <p class="footer-lead">内核开发交流请用 linux.dev 邮箱；工作事宜请用公司邮箱。所有成果均可在 lore.kernel.org 公开查询。</p>
+    <div class="footer-mails">
+      <a class="btn btn-primary footer-mail" href="mailto:cong.yi@linux.dev">cong.yi@linux.dev</a>
+      <a class="btn btn-outline footer-mail" href="mailto:yicong@kylinos.cn">yicong@kylinos.cn</a>
+    </div>
+    <div class="footer-links">
+      <a href="https://lore.kernel.org/all/?q=cong.yi%40linux.dev" target="_blank" rel="noopener">内核讨论 (cong.yi@linux.dev)</a>
+      <span class="sep">·</span>
+      <a href="https://lore.kernel.org/all/?q=yicong%40kylinos.cn" target="_blank" rel="noopener">内核讨论 (yicong@kylinos.cn)</a>
+      <span class="sep">·</span>
+      <a href="https://gitee.com/" target="_blank" rel="noopener">Gitee</a>
+    </div>
+    <p class="copyright">© <span id="year">2026</span> Yicong · Built with ♥ and GitHub Pages</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
