@@ -12,7 +12,9 @@ congmaker-dev.github.io/
 ├── index.html          主页（统计条/关于/技能/Linux内核贡献7卡/其他开源贡献/专利/联系）
 ├── kernel.html         完整记录 · Linux 内核贡献（每项含邮件讨论链接与补丁链接）
 ├── opensource.html     完整记录 · 其他开源贡献（Notepad--）
-├── patents.html        完整记录 · 专利
+├── patents.html        完整记录 · 专利（著录信息 + 问题/方案/效果 + 附图）
+├── picture.jpg         头像
+├── images/patents/     专利附图（从公开 PDF 裁切，灰度 16 色压缩，<公开号小写>-fig<N>.png）
 ├── css/style.css       全部样式（配色在顶部 :root 变量区）
 ├── js/main.js          菜单/终端打字机/滚动动画
 └── README.md           本文件
@@ -67,7 +69,7 @@ Settings → Pages，确认 Source 为 `Deploy from a branch`、分支 `main`、
 | 统计数字（补丁数/专利数等） | **只改 `js/main.js` 顶部的 `SITE` 配置**，各页面统计自动同步 |
 | 新增内核补丁 | `index.html` 复制一个 `<article class="project-card">` 块 + `kernel.html` 复制一个 `.record-item` 块（含讨论链接），再把 `main.js` 里 `SITE.patches` 加 1 |
 | 新增开源项目贡献 | `index.html` 的 `.oss-grid` 里复制一张 `.oss-card` + `opensource.html` 复制一个 `.record-item` |
-| 新增专利 | `index.html` 与 `patents.html` 的 `.patent-table` 各加一行，更新 `SITE.patents` / `SITE.patentsGranted` |
+| 新增专利 | `patents.html` 复制一张 `.patent-detail` 卡（含著录/问题/方案/效果/附图）并加表格行，`index.html` 表格加同名锚点行，附图放 `images/patents/`，更新 `SITE.patents` / `SITE.patentsGranted` |
 | 配色 / 字体 / 间距 | `css/style.css` 顶部 `:root` 变量区 |
 
 ## 📌 内容来源

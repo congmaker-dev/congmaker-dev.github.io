@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Yi Cong 名下的发明专利记录">
+  <meta name="description" content="Yi Cong 名下的发明专利记录：KABI 预留结构体、多版本无线协议栈共存、升级后网络性能调优">
   <title>专利 · Yi Cong</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -25,24 +25,153 @@
     </div>
   </nav>
 
-  <header class="page-header">
+  <header class="page-header wide">
     <p class="meta"><span data-stat="patents" data-template="%d 项专利">3 项专利</span><span data-stat="patentsGranted" data-template="%d 项已授权">1 项已授权</span><span>持续更新...</span></p>
     <h1>专利</h1>
   </header>
 
-  <article class="article">
-    <p>本人名下的发明专利，均可在国家知识产权局专利公布公告网按公开/授权号查询。</p>
+  <article class="article article-wide">
+    <p>本人作为<span style="color:var(--pink);font-weight:700">第一发明人</span>的发明专利，均可在国家知识产权局专利公布公告网按公开/授权号查询。附图均摘自专利公开文本。</p>
+
+    <p class="patent-hint">// 点击公开号或专利名，跳转查看该专利详情</p>
 
     <table class="patent-table">
       <thead>
         <tr><th>公开 / 授权号</th><th>专利名</th><th>状态</th></tr>
       </thead>
       <tbody>
-        <tr><td>CN122679229A</td><td>内核多版本无线协议栈共存部署方法、装置、终端及介质</td><td>已公开</td></tr>
-        <tr><td>CN120743339B</td><td>预留结构体的确定方法、装置、终端及介质</td><td><span class="status-ok">已授权</span>（2025-12-12）</td></tr>
-        <tr><td>CN120658602A</td><td>一种操作系统升级后的网络性能调优方法及系统</td><td>已公开</td></tr>
+        <tr>
+          <td><a href="#cn120743339b">CN120743339B</a></td>
+          <td><a href="#cn120743339b">预留结构体的确定方法、装置、终端及介质</a></td>
+          <td><span class="status-ok">已授权</span>（2025-12-12）</td>
+        </tr>
+        <tr>
+          <td><a href="#cn122679229a">CN122679229A</a></td>
+          <td><a href="#cn122679229a">内核多版本无线协议栈共存部署方法、装置、终端及介质</a></td>
+          <td>已公开</td>
+        </tr>
+        <tr>
+          <td><a href="#cn120658602a">CN120658602A</a></td>
+          <td><a href="#cn120658602a">一种操作系统升级后的网络性能调优方法及系统</a></td>
+          <td>已公开</td>
+        </tr>
       </tbody>
     </table>
+
+    <!-- CN120743339B 已授权 -->
+    <div class="patent-detail" id="cn120743339b">
+      <div class="patent-head">
+        <span class="patent-no">CN120743339B</span>
+        <span class="patent-badge badge-granted">已授权 · 2025-12-12</span>
+      </div>
+      <h3 class="patent-title">预留结构体的确定方法、装置、终端及介质</h3>
+      <ul class="patent-meta">
+        <li><span>类型</span>发明专利（已授权）</li>
+        <li><span>申请号</span>202511239883.6</li>
+        <li><span>申请日</span>2025-09-02</li>
+        <li><span>公开日</span>2025-10-03</li>
+        <li><span>授权公告日</span>2025-12-12</li>
+        <li><span>IPC</span>G06F 8/71</li>
+      </ul>
+      <div class="patent-body">
+        <div class="patent-points">
+          <div class="point">
+            <span class="pt-label pt-scenario">问题场景</span>
+            <p>一次 6.6 内核 wifi 协议栈升级梳理中遇到的问题：KABI 白名单里的接口与数据结构变动需要逐个排查——哪些结构体<b>"名称未变、属性已变"</b>、多层嵌套结构体里哪些底层成员受影响，过去全靠<b>人工比对</b>新旧内核头文件，费时费力还容易漏判；一旦漏掉，旧驱动模块在新内核上轻则加载失败，重则写脏结构体引发内核崩溃。</p>
+          </div>
+          <div class="point">
+            <span class="pt-label pt-solution">解决方式</span>
+            <p>利用抽象语法树（AST）自动抽取新旧版本 KABI 相关文件中的全部结构体（嵌套结构体<b>展开到底层成员</b>），比对得到差异集合；再基于函数接口白名单生成 ABI 描述文件，两个集合取交集，<b>自动输出</b>需要预留空间的结构体清单。</p>
+          </div>
+          <div class="point">
+            <span class="pt-label pt-result">成果</span>
+            <p>排查从"人工逐个比对"变为"自动化输出清单"，效率与准确性双提升；方法已用于公司内核维护分支的协议栈升级检测（结构体空间预留结果<b>已合入</b>）。专利于 <b>2025-12-12 获国家知识产权局授权</b>。</p>
+          </div>
+        </div>
+        <figure class="patent-fig">
+          <a href="images/patents/cn120743339b-fig1.png" target="_blank" rel="noopener">
+            <img src="images/patents/cn120743339b-fig1.png" alt="CN120743339B 图1：预留结构体确定方法流程图" loading="lazy">
+          </a>
+          <figcaption>图1 · 方法流程图（步骤 110–160）</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- CN122679229A 已公开 -->
+    <div class="patent-detail" id="cn122679229a">
+      <div class="patent-head">
+        <span class="patent-no">CN122679229A</span>
+        <span class="patent-badge badge-published">已公开 · 2026-09-01</span>
+      </div>
+      <h3 class="patent-title">内核多版本无线协议栈共存部署方法、装置、终端及介质</h3>
+      <ul class="patent-meta">
+        <li><span>类型</span>发明专利申请</li>
+        <li><span>申请号</span>202610841667.7</li>
+        <li><span>申请日</span>2026-06-11</li>
+        <li><span>公开日</span>2026-09-01</li>
+        <li><span>IPC</span>H04L 69/30、G06F 8/71 等</li>
+      </ul>
+      <div class="patent-body">
+        <div class="patent-points">
+          <div class="point">
+            <span class="pt-label pt-scenario">问题场景</span>
+            <p>银河麒麟 V10 SP1（5.4 内核）需要支持 WiFi 7 等新网卡，但新驱动依赖 6.6 内核的 cfg80211/mac80211 新版协议栈，<b>已发行版本跑不起来</b>；整体升级无线子系统工作量巨大、难以全量回归测试，让网卡厂商在旧协议栈上自行适配又存在功能盲区、积极性也不高。</p>
+          </div>
+          <div class="point">
+            <span class="pt-label pt-solution">解决方式</span>
+            <p>按目标驱动拉取匹配版本的内核源码，分离出 cfg80211/mac80211 组件；给全部导出符号附加<b>厂商 + 内核版本前缀</b>（如 kylin_v6_6_ieee80211_find_sta），并生成"#define 原符号 → 新符号"的<b>兼容头文件</b>——多套协议栈在同一内核中符号完全隔离、并行共存，原生协议栈不受影响。</p>
+          </div>
+          <div class="point">
+            <span class="pt-label pt-result">成果</span>
+            <p>基于该方法完成无线子系统 backport 移植：5.4 内核成功运行 6.6 协议栈，<b>WiFi 5 / WiFi 7 网卡实测网络功能正常</b>，新旧系统驱动同源；配套 dkms 包通过 <b>45 个内核小版本</b>（5.4.18-101 ~ 168）的编译兼容检测。方案固化为专利，2026-09-01 公开。</p>
+          </div>
+        </div>
+        <figure class="patent-fig">
+          <a href="images/patents/cn122679229a-fig2.png" target="_blank" rel="noopener">
+            <img src="images/patents/cn122679229a-fig2.png" alt="CN122679229A 图2：多版本无线协议栈共存部署架构图" loading="lazy">
+          </a>
+          <figcaption>图2 · 共存部署架构（原生 / V-1 / V-2 并行隔离）</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- CN120658602A 已公开 -->
+    <div class="patent-detail" id="cn120658602a">
+      <div class="patent-head">
+        <span class="patent-no">CN120658602A</span>
+        <span class="patent-badge badge-published">已公开 · 2025-09-16</span>
+      </div>
+      <h3 class="patent-title">一种操作系统升级后的网络性能调优方法及系统</h3>
+      <ul class="patent-meta">
+        <li><span>类型</span>发明专利申请</li>
+        <li><span>申请号</span>202510826149.3</li>
+        <li><span>申请日</span>2025-06-19</li>
+        <li><span>公开日</span>2025-09-16</li>
+        <li><span>IPC</span>H04L 41/082 等</li>
+      </ul>
+      <div class="patent-body">
+        <div class="patent-points">
+          <div class="point">
+            <span class="pt-label pt-scenario">问题场景</span>
+            <p>前场多起存量设备故障：系统升级后有线网卡<b>无法获取 IP 地址</b>（RGMII 时延默认值失配）、开机/重启后<b>概率性断网</b>、睡眠唤醒后只收不发——根源都是升级后的 MAC/PHY 驱动与出厂 BIOS 调好的 PHY↔MAC 收发<b>时延参数失配</b>；找整机厂商重刷 BIOS 或系统厂商定制流程繁琐，旧设备甚至无人维护。</p>
+          </div>
+          <div class="point">
+            <span class="pt-label pt-solution">解决方式</span>
+            <p>在网卡芯片允许的时延值区间内<b>逐值实测</b>：联网状态下做多机连通性测试，用吞吐量 / 丢包率 / 错误计数评分选取最优值；未联网时用 PHY 单机回环测试筛出可用值取中值；最终把最优时延写入寄存器并与链路连接（link up）事件绑定，开机自动生效——<b>纯软件</b>完成调优。</p>
+          </div>
+          <div class="point">
+            <span class="pt-label pt-result">成果</span>
+            <p>不依赖示波器等外部测试工具即可完成升级后网络异常的恢复与性能调优，减少 BIOS 厂商与操作系统厂商的适配工作量；方法正是从上述<b>真实前场案例</b>的调试复盘中提炼，专利 2025-09-16 公开。</p>
+          </div>
+        </div>
+        <figure class="patent-fig">
+          <a href="images/patents/cn120658602a-fig2.png" target="_blank" rel="noopener">
+            <img src="images/patents/cn120658602a-fig2.png" alt="CN120658602A 图2：网络性能调优方法流程图" loading="lazy">
+          </a>
+          <figcaption>图2 · 方法流程图（单机 / 多机测试分支）</figcaption>
+        </figure>
+      </div>
+    </div>
   </article>
 
   <p class="back-list"><a href="index.html">← 返回首页</a></p>
